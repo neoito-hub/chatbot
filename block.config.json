@@ -1,0 +1,17 @@
+{
+  "name": "chatbot",
+  "type": "raw-package",
+  "blockId": "yPm7S4Sq7_RrZPyW9WBUO",
+  "source": {
+    "https": null,
+    "ssh": null,
+    "branch": "block_chatbot"
+  },
+  "parentBlockIDs": [],
+  "isPublic": true,
+  "supportedAppblockVersions": [
+    "1.0.0"
+  ],
+  "repoType": "mono",
+  "language": "golang"
+}

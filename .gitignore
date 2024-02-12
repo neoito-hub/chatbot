@@ -1,0 +1,88 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+packages/chatbot/node_modules
+packages/chatbot/.pnp
+packages/chatbot/.pnp.js
+
+
+# testing
+packages/chatbot/coverage
+
+# next.js
+packages/chatbot/.next/
+packages/chatbot/out/
+
+# production
+packages/chatbot/build
+
+# misc
+packages/chatbot/.DS_Store
+packages/chatbot/*.pem
+
+# debug
+packages/chatbot/npm-debug.log*
+packages/chatbot/yarn-debug.log*
+packages/chatbot/yarn-error.log*
+
+# local env files
+packages/chatbot/.env*.local
+packages/chatbot/.env
+
+# vercel
+packages/chatbot/.vercel
+
+# typescript
+packages/chatbot/*.tsbuildinfo
+packages/chatbot/next-env.d.ts
+packages/chatbot/package-lock.json
+
+packages/chatbot/uploads
+
+
+
+
+
+# dependencies
+packages/chatbot-context/node_modules
+packages/chatbot-context/.pnp
+packages/chatbot-context/.pnp.js
+packages/chatbot/uploads
+packages/chatbot-context/uploads
+
+# testing
+packages/chatbot-context/coverage
+
+# next.js
+packages/chatbot-context/.next/
+packages/chatbot-context/out/
+
+# production
+packages/chatbot-context/build
+
+# misc
+packages/chatbot-context/.DS_Store
+packages/chatbot-context/*.pem
+
+# debug
+packages/chatbot-context/npm-debug.log*
+packages/chatbot-context/yarn-debug.log*
+packages/chatbot-context/yarn-error.log*
+
+# local env files
+packages/chatbot-context/.env*.local
+packages/chatbot-context/.env
+
+# vercel
+packages/chatbot-context/.vercel
+
+# typescript
+packages/chatbot-context/*.tsbuildinfo
+packages/chatbot-context/next-env.d.ts
+packages/chatbot-context/package-lock.json
+
+packages/chatbot-context/uploads
+
+
+node_modules
+.env
