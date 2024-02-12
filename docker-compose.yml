@@ -17,7 +17,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     volumes:
-      - ./packages/shield/pg-data:/var/lib/postgresql/data
+      - ./pg-data:/var/lib/postgresql/data
     ports:
       - "5433:5432"
     healthcheck:
@@ -81,16 +81,3 @@ services:
         condition: service_healthy
     command: bash -c "npx prisma generate --schema=./utils/prisma/schema.prisma && npx prisma db push --schema=./utils/prisma/schema.prisma && pm2-runtime start ./ecosystem.config.js"
 
-  shield-go-app:
-    build: ./packages/shield
-    container_name: chatbot_shield_app_container
-    ports:
-      - "8080:8080"
-      - "8010:8010"
-      - "8011:8011"
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    command: bash -c "go run ./migrator/main.go && go run ./main.go ./packages.go"

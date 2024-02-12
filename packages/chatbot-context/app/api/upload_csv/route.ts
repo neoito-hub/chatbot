@@ -9,8 +9,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { getVectorStore } from "../../../utils/chain";
 import { File } from "buffer";
 import { join } from "path";
-import { checkUserAccess } from "@/utils/checkAccess";
-import validateUser from "../../../utils/validation/validateUser.js";
+import { getProjectData } from "@/utils/checkAccess";
 import utils from "../../../utils/index.js";
 
 // import { parseForm,  } from "../../../lib/parse-from";
@@ -26,14 +25,14 @@ import utils from "../../../utils/index.js";
  *       name: projectName
  *       schema:
  *         type: string
- *       required: true  
+ *       required: true
  *   requestBody:
  *     content:
  *       multipart/form-data:
  *         schema:
  *           type: object
  *           required:
-  *             - file1
+ *             - file1
  *           properties:
  *             file1:
  *               type: string
@@ -88,16 +87,13 @@ export async function POST(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const projectID = searchParams.get("project_id") as string;
     if (!projectID) {
-     return Response.json(
-       { success: false, message: "Param project id not found" },
-       { status: 400 }
-     );
-   }
+      return Response.json(
+        { success: false, message: "Param project id not found" },
+        { status: 400 }
+      );
+    }
 
-
-
-    let user: any = await utils.validateUser(request);
-    let project: any = await checkUserAccess(projectID, user.id);
+    let project: any = await getProjectData(projectID);
 
     const uploadDir = join(
       process.env.ROOT_DIR || process.cwd(),
@@ -133,9 +129,6 @@ export async function POST(request: NextRequest) {
     });
     const docs = await loader.load();
 
-    console.log("doc output  is", docs.length);
-
-
     const vectorStore = getVectorStore(project.project.collection_name);
     await vectorStore.addDocuments(docs);
 
@@ -152,5 +145,4 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "failed" }, { status: 500 });
     }
   }
-  //   });
 }

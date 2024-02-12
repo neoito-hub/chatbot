@@ -1,16 +1,14 @@
 import { NextResponse } from "next/server";
-import { getVectorStore,qdrantClient } from "@/utils/chain";
+import { getVectorStore, qdrantClient } from "@/utils/chain";
 
 import { RecursiveUrlLoader } from "langchain/document_loaders/web/recursive_url";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { compile } from "html-to-text";
 import { useSearchParams } from "react-router-dom";
-import { checkUserAccess } from "@/utils/checkAccess";
-import validateUser from "../../../utils/validation/validateUser.js";
+import { getProjectData } from "@/utils/checkAccess";
 import { hostname } from "os";
 import { writeFileSync } from "fs";
 import utils from "../../../utils/index.js";
-
 
 /**
  * @swagger
@@ -23,7 +21,7 @@ import utils from "../../../utils/index.js";
  *       name: projectName
  *       schema:
  *         type: string
- *       required: true  
+ *       required: true
  *     requestBody:
  *       required: true
  *       content:
@@ -47,11 +45,11 @@ export async function POST(request: Request) {
     const { searchParams } = new URL(request.url);
     const projectID = searchParams.get("project_id") as string;
     if (!projectID) {
-     return Response.json(
-       { success: false, message: "Param project id not found" },
-       { status: 400 }
-     );
-   }
+      return Response.json(
+        { success: false, message: "Param project id not found" },
+        { status: 400 }
+      );
+    }
 
     const url = body.url;
 
@@ -71,14 +69,11 @@ export async function POST(request: Request) {
     //           });
     //     }
 
-    console.log("request host is \n", request.headers.get("Host"));
-    let user: any = await utils.validateUser(request);
-    let project: any = await checkUserAccess(projectID, user.id);
+    let project: any = await getProjectData(projectID);
 
     if (project.error) {
-      return NextResponse.json({ error: "UnAuthorised" }, { status: 403 });
+      return NextResponse.json({ error: "Invalid project ID" }, { status: 400 });
     }
-
 
     const compiledConvert = compile({ wordwrap: 130 }); // returns (text: string) => string;
 
@@ -90,17 +85,12 @@ export async function POST(request: Request) {
 
     const docs = await loader.load();
 
-    console.log("doc  is", docs.length);
-
     const splitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
       chunkOverlap: 20,
     });
 
     const docOutput = await splitter.splitDocuments(docs);
-
-    console.log("doc output is", docOutput.length);
-    writeFileSync("test.json", JSON.stringify(docs));
 
     const vectorStore = getVectorStore(project.project.collection_name);
     await vectorStore.addDocuments(docOutput);

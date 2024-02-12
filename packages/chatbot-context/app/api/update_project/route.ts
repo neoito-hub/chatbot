@@ -9,8 +9,7 @@ import { CSVLoader } from "langchain/document_loaders/fs/csv";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { UnstructuredLoader } from "langchain/document_loaders/fs/unstructured";
 import { mkdirSync, rmSync, rmdirSync, statSync, writeFileSync } from "fs";
-import { checkUserAccess } from "@/utils/checkAccess";
-import validateUser from "../../../utils/validation/validateUser.js";
+import { getProjectData } from "@/utils/checkAccess";
 import validateProjectInput from "./validation.js";
 import utils from "../../../utils/index.js";
 
@@ -50,7 +49,7 @@ import utils from "../../../utils/index.js";
  *                  data:
  *                   type: object
  *                   properties:
- *                    id: 
+ *                    id:
  *                     type: string
  *         description: Ok
  *       400:
@@ -91,11 +90,9 @@ export async function POST(request: Request) {
 
     validateProjectInput(body);
 
-    let user: any = await utils.validateUser(request);
     // let project:any = await checkUserAccess(collectionName, user.id);
 
-    let project: any={}
-
+    let project: any = {};
 
     if (body?.project_name?.length ?? 0 > 0) {
       project.name = body.project_name;
@@ -105,17 +102,13 @@ export async function POST(request: Request) {
       project.description = body.description;
     }
 
-
-
     if (body?.category?.length ?? 0 > 0) {
       project.category = body.category;
     }
 
-
     if (body?.domains?.length ?? 0 > 0) {
       project.domains = body.domains;
-    }   
-
+    }
 
     if (body?.status?.length ?? 0 > 0) {
       project.status = body.status;
@@ -123,24 +116,19 @@ export async function POST(request: Request) {
 
     let projectData: any;
 
-
     await utils.prisma.$transaction(async (tx: any) => {
       projectData = await tx.project.updateMany({
         data: project,
         where: {
           id: body.id,
-          user_id: user.id,
         },
       });
     });
 
-    console.log("project data is", projectData);
-
     return NextResponse.json({
-      msg: "Project updated for the user",
+      msg: "Project updated",
       data: { id: projectData.id },
     });
-    // })
   } catch (e: any) {
     console.log("error is \n", e);
     if (e.errorCode && e.errorCode < 500) {

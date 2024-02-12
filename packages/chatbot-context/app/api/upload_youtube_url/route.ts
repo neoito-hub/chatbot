@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import { YoutubeLoader } from "langchain/document_loaders/web/youtube";
 import { getVectorStore } from "../../../utils/chain";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { checkUserAccess } from "@/utils/checkAccess";
-import validateUser from "../../../utils/validation/validateUser.js";
+import { getProjectData } from "@/utils/checkAccess";
 import utils from "../../../utils/index.js";
 
 /**
@@ -17,7 +16,7 @@ import utils from "../../../utils/index.js";
  *        name: projectName
  *        schema:
  *         type: string
- *        required: true  
+ *        required: true
  *     requestBody:
  *       required: true
  *       content:
@@ -37,7 +36,7 @@ import utils from "../../../utils/index.js";
  *                  msg:
  *                   type: string
  *                   example: Youtube context added to model
- *                  
+ *
  *         description: Ok
  *       400:
  *        content:
@@ -77,19 +76,16 @@ export async function POST(request: Request) {
     const { searchParams } = new URL(request.url);
     const projectID = searchParams.get("project_id") as string;
     if (!projectID) {
-     return Response.json(
-       { success: false, message: "Param project id not found" },
-       { status: 400 }
-     );
-   }
+      return Response.json(
+        { success: false, message: "Param project id not found" },
+        { status: 400 }
+      );
+    }
 
-
-    let user: any = await utils.validateUser(request);
-    let project: any = await checkUserAccess(projectID, user.id);
+    let project: any = await getProjectData(projectID);
     if (project.error) {
       return NextResponse.json({ error: "UnAuthorised" }, { status: 403 });
     }
-
 
     const loader = YoutubeLoader.createFromUrl(body.url, {
       language: "en",
@@ -98,8 +94,6 @@ export async function POST(request: Request) {
 
     const docs = await loader.load();
 
-    console.log("doc output  is", docs.length);
-
     const splitter = new RecursiveCharacterTextSplitter({
       chunkSize: 1000,
       chunkOverlap: 20,
@@ -107,7 +101,6 @@ export async function POST(request: Request) {
 
     const docOutput = await splitter.splitDocuments(docs);
 
-    console.log("doc output after splitting  is", docOutput.length);
     const vectorStore = getVectorStore(project.project.collection_name);
     await vectorStore.addDocuments(docs);
 

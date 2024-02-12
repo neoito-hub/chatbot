@@ -1,10 +1,9 @@
 import prisma from "./prisma.mjs";
 
-async function checkUserAccess(projectID: string, userID: string) {
+async function getProjectData(projectID: string) {
   const project = await prisma.project.findFirst({
     where: {
       id: projectID,
-      user_id: userID,
     },
   });
 
@@ -16,4 +15,4 @@ async function checkUserAccess(projectID: string, userID: string) {
   return { project: project, error: false };
 }
 
-export { checkUserAccess };
+export { getProjectData };

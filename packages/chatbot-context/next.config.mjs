@@ -6,10 +6,7 @@ const nextConfig = {
     return config;
   },
   env: {
-    APPBLOCKS_DISCORD_URL: process.env.APPBLOCKS_DISCORD_URL,
-    DOCS_PUBLIC_PATH: process.env.DOCS_PUBLIC_PATH,
-    BLOCK_ENV_URL_CLIENT_ID: process.env.BLOCK_ENV_URL_CLIENT_ID,
-    SHIELD_AUTH_URL: process.env.SHIELD_AUTH_URL,
+
   },
 
   async headers() {
@@ -21,12 +18,10 @@ const nextConfig = {
         return item.value;
       }) ?? [];
 
-      console.log("project domains are",projectDomains)
 
     let allowedDomains =
       projectDomains.join(",") + "," + process.env.CORS_ORIGINS;
 
-      console.log("allowed domains are",allowedDomains)
 
 
     return [

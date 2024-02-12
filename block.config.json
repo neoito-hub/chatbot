@@ -3,8 +3,8 @@
   "type": "raw-package",
   "blockId": "yPm7S4Sq7_RrZPyW9WBUO",
   "source": {
-    "https": null,
-    "ssh": null,
+    "https": "https://github.com/neoito-hub/chatbot.git",
+    "ssh": "git@github.com:neoito-hub/chatbot.git",
     "branch": "block_chatbot"
   },
   "parentBlockIDs": [],

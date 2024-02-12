@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       },
     });
 
-    const chain = await initChain(projectData.colle);
+    const chain = await initChain(projectData.collection_name);
 
     const res = await chain.invoke({
       question: question,

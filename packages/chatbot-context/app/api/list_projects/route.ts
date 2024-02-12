@@ -9,8 +9,7 @@ import { CSVLoader } from "langchain/document_loaders/fs/csv";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { UnstructuredLoader } from "langchain/document_loaders/fs/unstructured";
 import { mkdirSync, rmSync, rmdirSync, statSync, writeFileSync } from "fs";
-import { checkUserAccess } from "@/utils/checkAccess";
-import validateUser from "../../../utils/validation/validateUser.js";
+import { getProjectData } from "@/utils/checkAccess";
 import validateProjectInput from "./validation.js";
 import utils from "../../../utils/index.js";
 
@@ -54,7 +53,7 @@ import utils from "../../../utils/index.js";
  *                     type: string
  *                    category:
  *                     type: string
- *                    created_at: 
+ *                    created_at:
  *                     type: string
  *                    updated_at:
  *                     type: string
@@ -99,14 +98,12 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    let user: any = await utils.validateUser(request);
     // let project:any = await checkUserAccess(collectionName, user.id);
 
     let projectData: any;
 
     projectData = await utils.prisma.project.findMany({
       where: {
-        user_id: user.id,
         status: 1,
       },
     });
@@ -117,52 +114,54 @@ export async function POST(request: Request) {
 
       let existingCollectionsMap: any = {};
 
-      await Promise.all(existingCollections.map(async (item: any) => {
-        const result = await qdrantClient.getCollection(item.name);
-        if (result?.vectors_count > 0) {
-          existingCollectionsMap[`${item.name}`] = true;
-        }
-      }))
+      await Promise.all(
+        existingCollections.map(async (item: any) => {
+          const result = await qdrantClient.getCollection(item.name);
+          if (result?.vectors_count > 0) {
+            existingCollectionsMap[`${item.name}`] = true;
+          }
+        })
+      );
 
       let progressProjects = await projectData.filter((item: any) => {
-       return !existingCollectionsMap[item.collection_name]
+        return !existingCollectionsMap[item.collection_name];
       });
 
-
       return NextResponse.json({
-        msg: "Projects in progress listed for the user",
+        msg: "Projects in progress listed",
         data: { projects: progressProjects },
       });
     }
 
     if (body?.context_status === 2) {
       let existingCollections = (await qdrantClient.getCollections())
-      .collections;
+        .collections;
 
-    let existingCollectionsMap: any = {};
+      let existingCollectionsMap: any = {};
 
-    await Promise.all(existingCollections.map(async (item: any) => {
-      const result = await qdrantClient.getCollection(item.name);
-      if (result?.vectors_count > 0) {
-        existingCollectionsMap[`${item.name}`] = true;
-      }
-    }))
+      await Promise.all(
+        existingCollections.map(async (item: any) => {
+          const result = await qdrantClient.getCollection(item.name);
+          if (result?.vectors_count > 0) {
+            existingCollectionsMap[`${item.name}`] = true;
+          }
+        })
+      );
 
-    let completedProjects = await projectData.filter((item: any) => {
-     return existingCollectionsMap[item.collection_name]
-    });
+      let completedProjects = await projectData.filter((item: any) => {
+        return existingCollectionsMap[item.collection_name];
+      });
 
       return NextResponse.json({
-        msg: "Usable projects listed for the user",
+        msg: "Usable projects listed",
         data: { projects: completedProjects },
       });
     }
 
     return NextResponse.json({
-      msg: "All Projects listed for the user",
+      msg: "All Projects listed",
       data: { projects: projectData },
     });
-    // })
   } catch (e: any) {
     console.log("error is \n", e);
     if (e.errorCode && e.errorCode < 500) {

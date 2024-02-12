@@ -9,8 +9,7 @@ import { CSVLoader } from "langchain/document_loaders/fs/csv";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { UnstructuredLoader } from "langchain/document_loaders/fs/unstructured";
 import { mkdirSync, rmSync, rmdirSync, statSync, writeFileSync } from "fs";
-import { checkUserAccess } from "@/utils/checkAccess";
-import validateUser from "../../../utils/validation/validateUser.js";
+import { getProjectData } from "@/utils/checkAccess";
 import validateProjectInput from "./validation.js";
 import utils from "../../../utils/index.js";
 
@@ -101,14 +100,12 @@ export async function POST(request: Request) {
 
     validateProjectInput(body);
     
-    let user: any = await utils.validateUser(request);
     // let project:any = await checkUserAccess(collectionName, user.id);
 
     let projectData: any;
 
     projectData = await utils.prisma.project.findUnique({
       where: {
-        user_id: user.id,
         status: 1,
         id:body.id
       },

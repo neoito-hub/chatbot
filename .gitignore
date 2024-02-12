@@ -72,6 +72,8 @@ packages/chatbot-context/yarn-error.log*
 # local env files
 packages/chatbot-context/.env*.local
 packages/chatbot-context/.env
+pg-data
+
 
 # vercel
 packages/chatbot-context/.vercel

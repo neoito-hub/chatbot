@@ -2,7 +2,6 @@ import { env } from "@appblocks/node-sdk";
 import { createClient } from "redis";
 
 import validateRequestMethod from "./validation/validateMethod.js";
-import authenticateUser from "./validation/validateUser.js";
 import httpStatusCodes from "./utils/httpStatusCodes.js";
 import prisma from "./prisma.mjs";
 import { sendMail } from "./utils/emailService.js";
@@ -148,7 +147,6 @@ export default {
   httpStatusCodes,
   prisma,
   validateRequestMethod,
-  validateUser: authenticateUser,
   checkHealth,
   isEmpty,
   sendMail,

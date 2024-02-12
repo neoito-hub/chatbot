@@ -16,7 +16,6 @@ model project {
   created_at      DateTime? @default(now())
   updated_at      DateTime? @updatedAt
   collection_name String?
-  user_id         String
   description     String @default("")
 
   chat_context chat_context[] @relation("chat_context_project_id")

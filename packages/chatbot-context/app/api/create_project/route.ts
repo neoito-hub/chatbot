@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import validateUser from "../../../utils/validation/validateUser.js";
 import validateProjectInput from "./validation.js";
 import utils from "../../../utils/index.js";
 import { nanoid } from "nanoid";
@@ -38,7 +37,7 @@ import { nanoid } from "nanoid";
  *                  data:
  *                   type: object
  *                   properties:
- *                    id: 
+ *                    id:
  *                     type: string
  *         description: Ok
  *       400:
@@ -79,15 +78,13 @@ export async function POST(request: Request) {
 
     validateProjectInput(body);
 
-    let user: any = await utils.validateUser(request);
     // let project:any = await checkUserAccess(collectionName, user.id);
 
     let project: any = {
       name: body.project_name,
       category: body.category,
       domains: body.domains,
-      description:body.description,
-      user_id: user.id,
+      description: body.description,
       status: 1,
       collection_name: nanoid() + "-" + body.project_name,
     };
@@ -100,15 +97,10 @@ export async function POST(request: Request) {
       });
     });
 
-    // await qdrantClient.createCollection(body.project_name, {});
-
-    console.log("project data is", projectData.id);
-
     return NextResponse.json({
       msg: "Project created for the user",
       data: { id: projectData.id },
     });
-    // })
   } catch (e: any) {
     console.log("error is \n", e);
     if (e.errorCode && e.errorCode < 500) {
