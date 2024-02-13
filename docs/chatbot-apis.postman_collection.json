@@ -1,0 +1,927 @@
+{
+	"info": {
+		"_postman_id": "a009a7db-2e53-482e-8c2b-fd034e24a15f",
+		"name": "chatbot-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "12406730"
+	},
+	"item": [
+		{
+			"name": "create_project",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"project_name\":\"AppblocksnewP23\",\"category\":\"Technology\",\"domains\":[\"http://localhost:3011\",\"http://localhost:3010\",\"https://bot.appblocks.com\"],\n\"description\":\"new project description\"}"
+				},
+				"url": "http://localhost:3011/api/create_project"
+			},
+			"response": []
+		},
+		{
+			"name": "list_projects",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ }"
+				},
+				"url": "http://localhost:3011/api/list_projects"
+			},
+			"response": []
+		},
+		{
+			"name": "get_project",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"f1bdaff5-360c-4edf-b9b8-f895ab3283f9\"\n                }"
+				},
+				"url": "http://localhost:3011/api/get_project"
+			},
+			"response": []
+		},
+		{
+			"name": "update_project",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":  \"c8d93616-7505-4826-84c5-f4453703cc04\",\"project_name\":\"AppblocksNew\", \"domains\": [\n                    \"http://localhost:3011\",\"http://localhost:3010/\",\n                    \"http://localhost:3010\",\n                    \"https://bot.appblocks.com\",\"http://localhost:3011/\"\n                ],\n                \"description\":\"appblocks description\"\n                }"
+				},
+				"url": "http://localhost:3011/api/update_project"
+			},
+			"response": []
+		},
+		{
+			"name": "github_upload",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"url\":\"https://github.com/appblocks-hub/docs\",\"branch_name\":\"main\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3011/api/github_upload?project_id=c8d93616-7505-4826-84c5-f4453703cc04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3011",
+					"path": [
+						"api",
+						"github_upload"
+					],
+					"query": [
+						{
+							"key": "project_id",
+							"value": "c8d93616-7505-4826-84c5-f4453703cc04"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload_youtube_url",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"url\":\"https://www.youtube.com/watch?v=NFHDHcs4BvQ\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3011/api/upload_youtube_url?project_id=c8d93616-7505-4826-84c5-f4453703cc04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3011",
+					"path": [
+						"api",
+						"upload_youtube_url"
+					],
+					"query": [
+						{
+							"key": "project_id",
+							"value": "c8d93616-7505-4826-84c5-f4453703cc04"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"url\":\"https://docs.appblocks.com/\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3011/api/upload?project_id=c8d93616-7505-4826-84c5-f4453703cc04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3011",
+					"path": [
+						"api",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "project_id",
+							"value": "c8d93616-7505-4826-84c5-f4453703cc04"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload_csv",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file1",
+							"type": "file",
+							"src": "/home/arn/Downloads/FAQ - CLI.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3011/api/upload_csv?project_id=f1bdaff5-360c-4edf-b9b8-f895ab3283f9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3011",
+					"path": [
+						"api",
+						"upload_csv"
+					],
+					"query": [
+						{
+							"key": "project_id",
+							"value": "f1bdaff5-360c-4edf-b9b8-f895ab3283f9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload_pdf",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MDc0MTI2NTksInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6Ijg5YzllYjI4LTdjOTAtNDkzOS1iNjQ4LWYzM2U2ODlmMzBkNiJ9.40op23IJk8WzRvtHqSJcdvzsNK9Qo_TSHkCS2ecWr0E"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file1",
+							"type": "file",
+							"src": "/home/arn/Downloads/Back-UPS Battery Backup_BX1100C-IN.pdf"
+						},
+						{
+							"key": "file2",
+							"type": "file",
+							"src": "/home/arn/Downloads/Back-UPS Battery Backup_BX1100C-IN.pdf",
+							"disabled": true
+						},
+						{
+							"key": "file3",
+							"type": "file",
+							"src": "/home/arn/Downloads/Neoito_Holiday_Calendar_2023.pdf",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3011/api/upload_pdf?project_id=f1bdaff5-360c-4edf-b9b8-f895ab3283f9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3011",
+					"path": [
+						"api",
+						"upload_pdf"
+					],
+					"query": [
+						{
+							"key": "project_id",
+							"value": "f1bdaff5-360c-4edf-b9b8-f895ab3283f9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload_audio",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "dev-api-spaces.appblocks.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTk2MDI4OTMsInRva2VuX3R5cGUiOiJBUFBCQUNDRVNTIiwidG9rZW5fdXVpZCI6ImJiMDcyMGViLWJiYTAtNGZhMy1hNmI5LTg1NTI2ODM3NTdjZCJ9.Y8fvYIq0fxHhBARSlKlP3VmfUwytijxe35fOe1LaNFY"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://dev-spaces.appblocks.com"
+					},
+					{
+						"key": "referer",
+						"value": "https://dev-spaces.appblocks.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "space_id",
+						"value": "nb-Fqy2NgetxLtisK-TAg"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file1",
+							"type": "file",
+							"src": "/home/arn/Downloads/harvard.wav"
+						},
+						{
+							"key": "file2",
+							"type": "file",
+							"src": "/home/arn/Downloads/harvard.wav",
+							"disabled": true
+						},
+						{
+							"key": "file3",
+							"type": "file",
+							"src": "/home/arn/Downloads/Neoito_Holiday_Calendar_2023.pdf",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3011/api/upload_audio?project_id=c8d93616-7505-4826-84c5-f4453703cc04",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3011",
+					"path": [
+						"api",
+						"upload_audio"
+					],
+					"query": [
+						{
+							"key": "project_id",
+							"value": "c8d93616-7505-4826-84c5-f4453703cc04"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

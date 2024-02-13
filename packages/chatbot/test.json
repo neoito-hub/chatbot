@@ -1,0 +1,204 @@
+[
+  {
+    "pageContent": "OpenAI & LangChain chatbot with custom context knowledge base",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "To learn how to use this repo watch this tutorial video",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "b80775005ce8a4dbfce7d3b6f4d03a75",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "NarrativeText"
+    }
+  },
+  {
+    "pageContent": "This chatbot uses Pinecone index to retrieve relevant information from a custom knowledge base.\nLearn how to create a Pinecone index in this tutorial",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "b80775005ce8a4dbfce7d3b6f4d03a75",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "NarrativeText"
+    }
+  },
+  {
+    "pageContent": "Tech stack: LangChain, Pinecone, Typescript, Openai, Next.js, Tailwind",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "Getting Started",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "Clone the repo",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "d00eca1bae6742803906ab42a831e8b5",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "git clone [github https url]",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "Install packages",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "3d8bb9f2fb9e8529a8ecf3a6508655fc",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "npm install",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "Set up your .env file",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "3a2dc0ae21eb56d78a0eb6bbd0f4512d",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "Change .env.example into .env and fill the neccessary keys.",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "3a2dc0ae21eb56d78a0eb6bbd0f4512d",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "For OPENAI API key visit openai",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "3a2dc0ae21eb56d78a0eb6bbd0f4512d",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "For Pinecone API key and environment and index names visit pinecone and create your index",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "3a2dc0ae21eb56d78a0eb6bbd0f4512d",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "Run the development server:",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "3a2dc0ae21eb56d78a0eb6bbd0f4512d",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "ListItem"
+    }
+  },
+  {
+    "pageContent": "npm run dev",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "Deploy on Vercel",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "Title"
+    }
+  },
+  {
+    "pageContent": "!! If your Vercel app throws back a timeout error when deployed, the response is taking more than 5s, which is the limit of a free Vercel plan.",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "f4b159f82a9762eb6e8c4efeaa159fb9",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "NarrativeText"
+    }
+  },
+  {
+    "pageContent": "The easiest way to deploy your Next.js app is to use the Vercel Platform",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "f4b159f82a9762eb6e8c4efeaa159fb9",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "NarrativeText"
+    }
+  },
+  {
+    "pageContent": "Check out Next.js deployment documentation for more details.",
+    "metadata": {
+      "page_number": 1,
+      "languages": ["eng"],
+      "parent_id": "f4b159f82a9762eb6e8c4efeaa159fb9",
+      "filename": "README.md",
+      "filetype": "text/markdown",
+      "category": "NarrativeText"
+    }
+  }
+]
