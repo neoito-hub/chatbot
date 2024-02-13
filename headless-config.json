@@ -9,5 +9,10 @@
 	"blockNamingStrategyFnArgs": [
 		"original",
 		"lastTried"
-	]
+	],
+	"defaultBranch": "main",
+	"localGitName": "Athuln",
+	"localGitEmail": "athul.n@neoito.com",
+	"currentSpaceName": "neoito_hub",
+	"currentSpaceId": "iKLWWMnNJB5iPhG95gPsQ"
 }
