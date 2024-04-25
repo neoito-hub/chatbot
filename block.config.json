@@ -1,6 +1,6 @@
 {
   "name": "chatbot",
-  "type": "raw-package",
+  "type": "containerized",
   "blockId": "yPm7S4Sq7_RrZPyW9WBUO",
   "source": {
     "https": "https://github.com/neoito-hub/chatbot.git",
